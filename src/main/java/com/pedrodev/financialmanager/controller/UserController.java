@@ -2,6 +2,7 @@ package com.pedrodev.financialmanager.controller;
 
 import com.pedrodev.financialmanager.dto.UserDTO;
 import com.pedrodev.financialmanager.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserDTO userDTO) {
 
         UserDTO createdUser = userService.createUser(userDTO);
 
